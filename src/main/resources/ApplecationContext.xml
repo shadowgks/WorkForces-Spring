@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!-- bean definitions here -->
+    <bean name="reading" class="org.example.Reading" init-method="init" destroy-method="destroy">
+        <!--if using Constructor-->
+        <constructor-arg index="0" ref="readingDB"/>
+        <!--if using Setter-->
+        <property name="readingList" ref="readingDB"/>
+        <!--if using List-->
+        <property name="readignList">
+            <list>
+                <value>test1</value>
+                <value>test2</value>
+                <value>test3</value>
+            </list>
+        </property>
+        <!--if using Set-->
+        <property name="numbers">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+        <!--if using Map-->
+        <property name="dataMap">
+            <map>
+                <entry key="1" value="saad"/>
+                <entry key="2" value="issam"/>
+                <entry key="3" value="ikram"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean name="readingDB" class="org.example.ReadingDB">
+    </bean>
+
+</beans>
